@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+a, a:active, a:hover {
+    color: #009fd9;
+    text-decoration: none;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header-wrapper {
+    display: flex;
+    border-bottom: 1px solid #e9eced;
+    color: #676d73;
+    height: 60px;
+}
+
+.header-desktop {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header-mobile {
+    display: none;
+}
+
+.header-desktop .links a {
+    color: #676d73;
+    padding: 0 16px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.header-desktop .links a:hover {
+    box-shadow: inset 0 -2px 0 #d3d4d5;
+    color: #2f3033;
+}
+
+#header-mobile-links {
+    position: fixed;
+    transform: translateY(-100%);
+    transition: transform .2s ease-in;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px;
+    font-size: 20px;
+    font-weight: 800;
+    color: black;
+}
+
+#header-mobile-links ul {
+    list-style-type: none;
+}
+
+#header-mobile-links li {
+    padding-bottom: 20px;
+}
+
+#hw-menu-arrow {
+    margin-left: 10px;
+    height: 13px;
+    width: 13px;
+}
+
+.hw-logo {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.hw-logo button {
+    background: none;
+    border: none;
+}
+
+
+@media (max-width: 768px) {
+    .header-desktop {
+        display: none
+    }
+
+    .header-mobile {
+        display: flex;
+    }
+}
