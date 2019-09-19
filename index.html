@@ -1,4 +1,4 @@
-<!--suppress HtmlUnknownTarget -->
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -31,13 +31,14 @@
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="root">
+<div id="root" class="flex flex-column">
 
-    <!--  Header  -->
     <div class="header-container">
         <header class="header-desktop">
             <div class="hw-logo">
-                <a href="/"><img height="17px" width="197px" src="/img/logo.png" alt="Logo"></a>
+                <a href="/">
+                    <img height="17px" width="197px" src="/img/logo.png" alt="Logo">
+                </a>
             </div>
             <nav class="links">
                 <ul>
@@ -48,9 +49,9 @@
         </header>
         <header class="header-mobile">
             <div class="hw-logo">
-                <button id="mobile-menu-button">
-                    <img height="17px" width="197px" src="/img/logo.png" alt="Logo">
-                    <img id="hw-menu-arrow" src="/img/down-arrow.svg" alt="">
+                <button type="button" class="menu-button" onclick="openMenu(this)">
+                    <img height="17px" src="/img/logo.png" alt="Logo">
+                    <img class="arrow" src="/img/down-arrow.svg" alt="">
                 </button>
             </div>
             <nav id="header-mobile-links">
@@ -64,21 +65,52 @@
         </header>
     </div>
 
-    <!--  Main Content  -->
-    <main>
-        <div class="gradient-wrapper">
-            <div class="home-page-modal">
-                <div class="home-page-title">
-                    Find a photographer for your event
-                </div>
-                <div>
-                    Just tell us about what kind of event are planning and we'll show you the right people.
-                </div>
+    <section class="home-section1">
+        <div class="home-background-photo">
+            <picture>
+                <img src="/img/home/home-bg.jpg" alt="">
+            </picture>
+            <div class="gradient"></div>
+        </div>
+
+        <div class="home-page-modal">
+            <div class="home-page-title">
+                Find a photographer for your event
+            </div>
+            <div>
+                Just tell us about what kind of event are planning and we'll show you the right people.
+            </div>
+            <div>
+                <label>
+                    <select name="photograph-type">
+                        <option value="">Select a photographer</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="portrait">Portrait</option>
+                        <option value="headshot">Headshot</option>
+                        <option value="event">Event</option>
+                        <option value="boudoir">Boudoir</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <button class="search">Search</button>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!--  Footer  -->
+    <section class="flex grey">
+        <div>
+            <button type="button">Wedding Photography</button>
+            <button type="button">Portrait Photography</button>
+            <button type="button">Headshot Photography</button>
+            <button type="button">Boudoir Photography</button>
+        </div>
+    </section>
+
+    <section>
+        todo
+    </section>
+
     <footer>
         <ul class="footer-links">
             <li><a href="/about-us">About us</a></li>

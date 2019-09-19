@@ -18,6 +18,34 @@ a, a:active, a:hover {
     text-decoration: none;
 }
 
+button, input[type=checkbox] + label, input[type=radio] + label, option, select {
+    cursor: pointer;
+}
+
+select {
+    border: 1px solid #d3d4d5;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 54px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: lighter;
+    padding: 0 10px;
+    background: url("/img/down-arrow.svg") 96% / 4% no-repeat;
+}
+
+button {
+    font-size: 16px;
+    font-weight: bolder;
+    padding: 0 10px;
+    border: none;
+    color: #fff;
+    background-color: #009fd9;
+    border-radius: 4px;
+    min-height: 48px;
+}
+
 #root {
     display: flex;
     flex-direction: column;
@@ -26,4 +54,28 @@ a, a:active, a:hover {
 
 main {
     display: flex;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.arrow {
+    transition: transform .2s ease;
+}
+
+.menu-button.open .arrow  {
+    transform: rotate(180deg);
+}
+
+.grey {
+    background-color: #e9eced;
 }

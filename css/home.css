@@ -1,21 +1,40 @@
-main {
-    background-image: url("/img/home-bg.jpg");
-    background-size: cover;
+.home-section1 {
+    display: flex;
+    flex-direction: column;
 }
 
-.gradient-wrapper {
-    background: linear-gradient(270deg,transparent,rgba(0,0,0,.5));
+@media screen and (min-width: 768px) {
+    .home-page-modal {
+        position: absolute;
+        margin: 10% !important;
+        max-width: 512px;
+    }
+}
+
+.home-background-photo {
+    min-height: 180px;
+    max-height: 576px;
+    overflow: hidden;
+    position: relative;
+}
+
+.home-background-photo img {
     width: 100%;
+}
+
+.home-background-photo .gradient {
+    position: absolute;
+    top: 0;
     height: 100%;
+    width: 100%;
+    background: linear-gradient(270deg, transparent, rgba(0, 0, 0, .5));
 }
 
 .home-page-modal {
     display: flex;
     flex-direction: column;
-    margin: 10%;
+    margin: 0;
     padding: 20px;
-    width: 100%;
-    max-width: 512px;
     max-height: 576px;
     background: rgb(255, 255, 255);
 }
@@ -28,4 +47,8 @@ main {
 
 .home-page-modal > div {
     margin-bottom: 16px;
+}
+
+button.search {
+    width: 100%;
 }
