@@ -1,14 +1,23 @@
 footer {
     display: flex;
-    align-content: center;
-    justify-content: center;
+    justify-content: space-between;
     color: #676d73;
     font-size: 0.9em;
     border-top: 1px solid #e9eced;
+    padding: 20px;
 }
 
 footer > div {
-    padding: 20px;
-    width: 100%;
-    max-width: 946px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-links li {
+    display: flex;
+    margin-right: 20px;
 }
