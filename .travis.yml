@@ -10,7 +10,8 @@ services:
 install: skip
 
 script:
-  - echo "Version: ${TRAVIS_BUILD_NUMBER}" > ./website/version.txt
+  - >
+    echo "Version: ${TRAVIS_BUILD_NUMBER}" > ./website/version.txt
   - docker build -t ${IMAGE_NAME} .
 
 deploy:
