@@ -12,7 +12,7 @@
 }
 
 .home-background-photo {
-    min-height: 180px;
+    min-height: 576px;
     max-height: 576px;
     overflow: hidden;
     position: relative;

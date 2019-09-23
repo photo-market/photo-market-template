@@ -1,0 +1,10 @@
+env:
+  global:
+    - IMAGE_NAME=saniaky/photo-market-tpl:${TRAVIS_BUILD_NUMBER:snapshot}
+
+services:
+  - docker
+
+before_install:
+  - docker build -t ${IMAGE_NAME}
+  - docker push ${IMAGE_NAME}
