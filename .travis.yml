@@ -2,7 +2,7 @@ language: minimal
 
 env:
   global:
-    - IMAGE_NAME=${DOCKER_ACCOUNT}/photo-market-tpl:${TRAVIS_BUILD_NUMBER:snapshot}
+    - IMAGE_NAME=${DOCKER_ACCOUNT}/photo-market-tpl
 
 services:
   - docker
