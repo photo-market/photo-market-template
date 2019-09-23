@@ -7,4 +7,12 @@ services:
 
 before_install:
   - docker build -t ${IMAGE_NAME}
-  - docker push ${IMAGE_NAME}
+
+deploy:
+  provider: script
+  script: bash deploy.sh
+  on:
+    branch: master
+
+# Using Docker in Builds
+# https://docs.travis-ci.com/user/docker/

@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  nginx:
+    image: saniaky/photo-market-tpl:latest
+    container_name: photo_market_tpl
+    restart: always
+    environment:
+      VIRTUAL_HOST: photo-market.club
+      LETSENCRYPT_HOST: photo-market.club
+      LETSENCRYPT_EMAIL: no-reply@photo-market.club
+
+networks:
+  default:
+    external:
+      name: edge
