@@ -7,7 +7,9 @@ env:
 services:
   - docker
 
-before_install:
+install: skip
+
+script:
   - docker build -t ${IMAGE_NAME} .
 
 deploy:
@@ -16,6 +18,7 @@ deploy:
   on:
     branch: master
 
-# Using Docker in Builds
-# https://docs.travis-ci.com/user/docker/
-# https://docs.travis-ci.com/user/languages/minimal-and-generic/
+
+# Job lifecycle:              https://docs.travis-ci.com/user/job-lifecycle/
+# Minimal and Generic images  https://docs.travis-ci.com/user/languages/minimal-and-generic/
+# Using Docker in Builds      https://docs.travis-ci.com/user/docker/
