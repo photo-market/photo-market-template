@@ -1,3 +1,5 @@
+language: minimal
+
 env:
   global:
     - IMAGE_NAME=saniaky/photo-market-tpl:${TRAVIS_BUILD_NUMBER:snapshot}
@@ -16,3 +18,4 @@ deploy:
 
 # Using Docker in Builds
 # https://docs.travis-ci.com/user/docker/
+# https://docs.travis-ci.com/user/languages/minimal-and-generic/
