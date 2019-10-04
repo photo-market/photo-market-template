@@ -1,3 +1,9 @@
+/**
+
+General styles only that are not related to any specific page
+
+ */
+
 * {
     margin: 0;
     padding: 0;
@@ -30,9 +36,9 @@ select {
     height: 54px;
     width: 100%;
     font-size: 16px;
-    font-weight: lighter;
+    font-weight: 400;
     padding: 0 10px;
-    background: url("/website/imgsite/img/down-arrow.svg") 96% / 4% no-repeat;
+    background: url("/img/down-arrow.svg") 96% / 16px no-repeat;
 }
 
 button {
@@ -44,36 +50,6 @@ button {
     background-color: #009fd9;
     border-radius: 4px;
     min-height: 48px;
-}
-
-#root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-main {
-    display: flex;
-}
-
-.flex {
-    display: flex;
-}
-
-.flex-column {
-    flex-direction: column;
-}
-
-.flex-row {
-    flex-direction: row;
-}
-
-.arrow {
-    transition: transform .2s ease;
-}
-
-.menu-button.open .arrow  {
-    transform: rotate(180deg);
 }
 
 .grey {

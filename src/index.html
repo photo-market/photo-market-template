@@ -31,56 +31,50 @@
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="root" class="flex flex-column">
+<!-- Will be used as a mounting point in ReactJS -->
+<div id="root" class="home-page">
 
-    <div class="header-container">
-        <header class="header-desktop">
-            <div class="hw-logo">
-                <a href="/">
-                    <img height="17px" width="197px" src="/img/logo.png" alt="Logo">
-                </a>
-            </div>
-            <nav class="links">
-                <ul>
-                    <li><a href="/signup.html">Sign up</a></li>
-                    <li><a href="/login.html">Login</a></li>
-                </ul>
-            </nav>
-        </header>
-        <header class="header-mobile">
-            <div class="hw-logo">
-                <button type="button" class="menu-button" onclick="openMenu(this)">
-                    <img height="17px" src="/img/logo.png" alt="Logo">
-                    <img class="arrow" src="/img/down-arrow.svg" alt="">
-                </button>
-            </div>
-            <nav id="header-mobile-links">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/join">Join as a photographer</a></li>
-                    <li><a href="/signup.html">Sign up</a></li>
-                    <li><a href="/login">Log in</a></li>
-                </ul>
-            </nav>
-        </header>
-    </div>
-
-    <section class="home-section1">
-        <div class="home-background-photo">
-            <picture>
-                <img src="/img/home/home-bg.jpg" alt="">
-            </picture>
-            <div class="gradient"></div>
+    <header class="header-desktop">
+        <div class="hw-logo">
+            <a href="/">
+                <img height="17px" width="197px" src="/img/logo.png" alt="Logo">
+            </a>
         </div>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="/signup.html">Sign up</a></li>
+                <li><a href="/login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="home-page-modal">
-            <div class="home-page-title">
-                Find a photographer for your event
+    <header class="header-mobile">
+        <div class="hw-logo">
+            <button type="button" class="menu-button" onclick="openMenu(this)">
+                <img height="17px" src="/img/logo.png" alt="Logo">
+                <img class="arrow" src="/img/down-arrow.svg" alt="">
+            </button>
+        </div>
+        <nav id="header-mobile-links">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/join">Join as a photographer</a></li>
+                <li><a href="/signup.html">Sign up</a></li>
+                <li><a href="/login">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="home-call-to-action">
+        <div class="home-call-to-action-modal">
+            <h1 class="call-to-action-title">
+                Photo Market
+            </h1>
+            <div class="call-to-action-description">
+                Right place to find a photographer. <br/>
+                Just choose a topic we'll show you the right people.
             </div>
-            <div>
-                Just tell us about what kind of event are planning and we'll show you the right people.
-            </div>
-            <div>
+            <div class="call-to-action-select">
                 <label>
                     <select name="photograph-type">
                         <option value="">Select a photographer</option>
@@ -98,20 +92,22 @@
         </div>
     </section>
 
-<!--    <section class="flex grey">-->
-<!--        <div>-->
-<!--            <button type="button">Wedding Photography</button>-->
-<!--            <button type="button">Portrait Photography</button>-->
-<!--            <button type="button">Headshot Photography</button>-->
-<!--            <button type="button">Boudoir Photography</button>-->
-<!--        </div>-->
-<!--    </section>-->
-
-    <section>
-        todo
+    <section class="popular-profiles">
+        <h1>Top portfolios</h1>
+        <ul class="popular-tabs">
+            <li>Wedding</li>
+            <li>Portrait</li>
+            <li>Headshot</li>
+            <li>Event</li>
+            <li>Boudoir</li>
+        </ul>
     </section>
 
-    <footer>
+    <section class="ad">
+        Advertising
+    </section>
+
+    <footer class="footer-main">
         <ul class="footer-links">
             <li><a href="/about-us">About us</a></li>
             <li><a href="/about-us">Contact us</a></li>

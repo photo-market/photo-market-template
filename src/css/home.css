@@ -1,0 +1,49 @@
+/**
+
+Home page - aka Landing page
+
+ */
+
+.home-call-to-action {
+    background: linear-gradient(270deg, transparent, rgba(0, 0, 0, 0.5)), url("/img/home/home-bg.jpg");
+    background-size: cover;
+    padding: 0;
+}
+
+.home-call-to-action .home-call-to-action-modal {
+    background-color: white;
+    padding: 20px;
+}
+
+.home-call-to-action .call-to-action-description {
+    margin-bottom: 16px;
+    line-height: 2em;
+}
+
+.home-call-to-action .call-to-action-title {
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.home-call-to-action .call-to-action-select {
+    margin-bottom: 16px;
+}
+
+.home-call-to-action button.search {
+    width: 100%;
+}
+
+.popular-profiles {
+    background-color: #e9eced;
+}
+
+/* min 700 */
+@media (min-width: 768px) {
+    .home-call-to-action {
+        padding: 10% 0 10% 10%;
+    }
+
+    .home-call-to-action .home-call-to-action-modal {
+        max-width: 500px;
+    }
+}
