@@ -61,3 +61,13 @@
     text-align: center;
     font-weight: 400;
 }
+
+.two-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.two-columns > div {
+    margin: 0;
+}

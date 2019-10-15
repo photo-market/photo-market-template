@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Find the right photographer with ease.">
+    <base href="/" target="_blank">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Photo market</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<!-- Will be used as a mounting point in ReactJS -->
+<div id="root">
+
+    <header class="header-desktop">
+        <a href="/" class="hw-logo">
+            <img height="17px" width="197px" src="/img/logo.png" alt="Logo">
+        </a>
+        <nav class="site-nav">
+            <ul>
+                <li><a href="/signup.html">Sign up</a></li>
+                <li><a href="/login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <header class="header-mobile">
+        <div class="hw-logo">
+            <button type="button" class="menu-button" onclick="openMenu(this)">
+                <img height="17px" src="/img/logo.png" alt="Logo">
+                <img class="arrow" src="/img/down-arrow.svg" alt="">
+            </button>
+        </div>
+        <nav id="header-mobile-links">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/join">Join as a photographer</a></li>
+                <li><a href="/signup.html">Sign up</a></li>
+                <li><a href="/login">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="auth-form">
+        <h1>Create an account</h1>
+
+        <div class="form-modal">
+            <form>
+                <div class="two-columns">
+                    <div class="firstname">
+                        <label class="input-label" for="firstname-label">Email address</label>
+                        <input class="input-text" id="firstname-label" maxlength="255" name="firstname" type="text">
+                    </div>
+                    <div class="lastname">
+                        <label class="input-label" for="lastname-label">Password</label>
+                        <input class="input-text" id="lastname-label" maxlength="255" name="lastname" type="text">
+                    </div>
+                </div>
+                <div class="email">
+                    <label class="input-label" for="email-label">Email address</label>
+                    <input class="input-text" id="email-label" maxlength="255" name="email" type="email">
+                </div>
+                <div class="Password">
+                    <label class="input-label" for="password-label">Password</label>
+                    <input class="input-text" id="password-label" maxlength="255" name="password" type="password">
+                </div>
+                <button class="wide">Create account</button>
+            </form>
+
+            <div class="separating-line">
+                OR
+            </div>
+
+            <p class="terms-warning">
+                By clicking Create Account, you agree to the
+                <a href="/terms" target="_blank">Terms of Use</a>
+                and <a href="/privacy" target="_blank">Privacy Policy</a>.
+            </p>
+
+            <button class="fb-signin">
+                <img src="/img/social/icon-facebook-white.svg" alt="google icon" width="18px" height="18px"/>
+                <span>Sign Up with Facebook</span>
+            </button>
+
+            <button class="google-signin">
+                <img src="/img/social/google-logo.svg" alt="google icon" width="18px" height="18px"/>
+                <span>Sign Up with Google</span>
+            </button>
+
+            <!-- other social networks - Apple, -->
+
+        </div>
+
+        <p class="afterwords">
+            Already have an account? <a href="/register">Log in.</a>
+        </p>
+
+    </main>
+
+    <footer class="footer-main">
+        <ul class="footer-links">
+            <li><a href="/about-us">About us</a></li>
+            <li><a href="/about-us">Contact us</a></li>
+            <li><a href="/sitemap">Site map</a></li>
+            <li><a href="/legal">Terms & Conditions</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+        <div>&copy; 2019 Photo Market, Inc.</div>
+    </footer>
+</div>
+<script src="/js/script.js"></script>
+</body>
+</html>
