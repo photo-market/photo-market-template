@@ -12,7 +12,9 @@ General styles only that are not related to any specific page
 
 body {
     margin: 0;
-    font-family: "Open Sans", "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #2f3033;
 }
 
 code {
@@ -28,10 +30,23 @@ button, input[type=checkbox] + label, input[type=radio] + label, option, select 
     cursor: pointer;
 }
 
+/*
+Set the font size of the form elements to at least 16px.
+On mobile browser will zoom if the font-size is less than 16px.
+ */
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type="search"],
+input[type="tel"],
+input[type="date"],
+input[type="datetime"],
+textarea {
+    font-size: 16px;
+}
+
 select {
     border: 1px solid #d3d4d5;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     height: 54px;
     width: 100%;
@@ -43,7 +58,7 @@ select {
 
 button {
     font-size: 16px;
-    font-weight: bolder;
+    /*font-weight: bolder;*/
     padding: 0 10px;
     border: none;
     color: #fff;
@@ -52,6 +67,135 @@ button {
     min-height: 48px;
 }
 
+button.wide {
+    width: 100%;
+}
+
 .grey {
     background-color: #e9eced;
 }
+
+/*  =========== START - SEPARATING LINE ============== */
+
+.separating-line {
+    text-transform: uppercase;
+    margin: 16px 0 16px 0;
+    display: flex;
+    color: #676d73;
+    align-items: center;
+}
+
+.separating-line:before, .separating-line:after {
+    content: "";
+    display: block;
+    flex: 1;
+    background: #e9eced;
+    height: 1px;
+}
+
+.separating-line:before {
+    margin-right: 16px;
+}
+
+.separating-line:after {
+    margin-left: 16px;
+}
+
+/*  =========== END - SEPARATING LINE ============== */
+
+/*  =========== START CHECKBOX ============== */
+.label-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.label-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.label-checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #ffffff;
+    border: 1px solid #d3d4d5;
+    border-radius: 4px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.label-checkbox input:checked ~ .checkmark {
+    background-color: #009fd9;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.label-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.label-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.label-checkbox .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/*  =========== END - CHECKBOX ============== */
+
+
+/*  =========== START - SOCIAL NETWORKS ============== */
+.fb-signin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: #3b579d;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 4px;
+}
+
+.google-signin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d3d4d5;
+    color: #676d73;
+    background-color: white;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 4px;
+}
+
+.fb-signin img, .google-signin img {
+    margin-right: 12px;
+}
+
+/*  =========== END - SOCIAL NETWORKS ============== */

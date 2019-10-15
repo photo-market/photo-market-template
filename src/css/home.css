@@ -34,7 +34,33 @@ Home page - aka Landing page
 }
 
 .popular-profiles {
-    background-color: #e9eced;
+    border-top: 1px solid rgb(233, 236, 237);
+}
+
+.popular-profiles > h1 {
+    margin: 20px;
+    text-align: center;
+}
+
+.portfolios-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.portfolio-card {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px 30px 10px;
+}
+
+.portfolio-card h1 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.portfolio-card p {
+    font-size: 0.9em;
 }
 
 /* min 700 */
