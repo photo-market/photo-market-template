@@ -12,8 +12,7 @@ install: skip
 script:
   - >
     echo "Version: ${TRAVIS_BUILD_NUMBER}" > ./src/version.txt
-  - cd src
-  - docker build -t ${IMAGE_NAME} .
+  - docker build -f Dockerfile -t ${IMAGE_NAME} .
 
 deploy:
   provider: script
