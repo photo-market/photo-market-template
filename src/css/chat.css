@@ -1,0 +1,115 @@
+main.messaging {
+    width: 90%;
+    max-width: 64em;
+    margin: 0 auto;
+}
+
+.chat {
+    display: flex;
+}
+
+main.messaging > div {
+    flex: 1;
+}
+
+.left-bar {
+    width: 300px;
+}
+
+.small-avatar {
+    border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+}
+
+.left-bar .dialogs .name {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.left-bar .search {
+    border-bottom: 1px solid #efefef;
+    padding: 7px;
+}
+
+.left-bar .search input {
+    border: none;
+    background-color: #f1f1f1;
+    height: 30px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.left-bar {
+    height: 500px;
+    border-left: 1px solid #efefef;
+    border-right: 1px solid #efefef;
+}
+
+.left-bar .dialogs ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-bar .dialogs li {
+    height: 65px;
+    border-bottom: 1px solid #efefef;
+    padding: 8px;
+}
+
+.left-bar .dialogs li.active {
+    background-color: #4c91c6;
+    color: white;
+}
+
+.left-bar .dialogs li.active .last-message-time,
+.left-bar .dialogs li.active .last-message {
+    color: white;
+}
+
+.left-bar .dialogs .name-and-date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-bar .dialogs .name {
+
+}
+
+.left-bar .dialogs .last-message,
+.left-bar .dialogs .last-message-time,
+.right-bar .recipient-info .last-seen {
+    color: #ababab;
+    /*font-weight: 300;*/
+    font-size: 12px;
+}
+
+.right-bar {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    border-right: 1px solid #efefef;
+}
+
+.right-bar .recipient-info {
+    display: flex;
+    border-bottom: 1px solid #efefef;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.right-bar .recipient-info .name {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.right-bar .messages {
+    background-color: #f9f9f9;
+    min-height: 200px;
+}
+
+.right-bar .input-bar {
+    height: 100px;
+}
