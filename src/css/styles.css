@@ -199,3 +199,31 @@ button.wide {
 }
 
 /*  =========== END - SOCIAL NETWORKS ============== */
+
+
+
+/*  =========== START - COMMA SEPARATED LIST ============== */
+ul.comma-separated {
+    display: inline;
+    list-style: none;
+}
+
+ul.comma-separated li {
+    display: inline;
+}
+
+ul.comma-separated li:after {
+    content: ", ";
+}
+
+ul.comma-separated li:last-child:after {
+    content: "";
+}
+/*  =========== END - COMMA SEPARATED LIST ============== */
+
+
+/*  =========== START - NO STYLE LIST ============== */
+ul.no-style-list {
+    list-style: none;
+}
+/*  =========== END - NO STYLE LIST ============== */
