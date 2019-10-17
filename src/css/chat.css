@@ -6,12 +6,13 @@ main.messaging {
 
 .chat {
     display: flex;
+    height: 400px;
 }
 
 .left-bar {
-    width: 300px;
-    max-width: 300px;
-    min-width: 300px;
+    /*width: 300px;*/
+    /*max-width: 300px;*/
+    min-width: 280px;
 }
 
 .small-avatar {
@@ -99,23 +100,6 @@ main.messaging {
 .right-bar .recipient-info .name {
     font-weight: 700;
     margin-bottom: 5px;
-}
-
-.im-messages-container {
-    flex: 1;
-    display: flex;
-    overflow: auto;
-    height: 300px;
-
-
-    position: relative;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 600px;
-
-    display: flex;
-    flex-direction: column;
 }
 
 .right-bar .messages {

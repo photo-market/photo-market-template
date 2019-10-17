@@ -75,6 +75,10 @@ button.wide {
     background-color: #e9eced;
 }
 
+.noscroll {
+    overflow: hidden;
+}
+
 /*  =========== START - SEPARATING LINE ============== */
 
 .separating-line {
