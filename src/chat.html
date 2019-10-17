@@ -121,21 +121,62 @@
                     </div>
                 </div>
 
-                <div class="messages">
-                    <div class="incoming">
-                        <div class="message">
-                            Hello world
+                <div class="im-messages-container">
+                    <div class="messages" id="messages">
+                        <div style="flex-grow: 1;"></div>
+                        <div class="outcoming">
+                            <div class="message">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Cras ac vestibulum est. Cras vestibulum sagittis molestie.
+                            </div>
+                            <div class="message-info">
+                                12:34 AM, read
+                            </div>
                         </div>
-                        <div class="message-info">
-                            12:34 AM, read
+                        <div class="incoming">
+                            <div class="message">
+                                Maecenas luctus, arcu quis mollis blandit, lorem lectus cursus enim,
+                                vel suscipit elit ipsum ullamcorper purus.
+                            </div>
+                            <div class="message-info">
+                                12:34 AM, read
+                            </div>
                         </div>
-                    </div>
-                    <div class="outcoming">
-                        <div class="message">
-                            Hello world
+                        <div class="incoming">
+                            <div class="message">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Cras ac vestibulum est. Cras vestibulum sagittis molestie.
+                                Fusce feugiat porttitor turpis. Fusce tincidunt sollicitudin magna.
+                                Maecenas luctus, arcu quis mollis blandit, lorem lectus cursus enim,
+                                vel suscipit elit ipsum ullamcorper purus.
+                            </div>
+                            <div class="message-info">
+                                12:34 AM, read
+                            </div>
                         </div>
-                        <div class="message-info">
-                            12:34 AM, read
+                        <div class="incoming">
+                            <div class="message">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Cras ac vestibulum est. Cras vestibulum sagittis molestie.
+                                Vivamus semper mi sit amet odio ornare, a fermentum ex placerat.
+                                Curabitur at est quam. Cras ut molestie leo. Sed a convallis libero.
+                                Aenean faucibus nisi nec dolor consequat dignissim. Duis ut volutpat arcu.
+                                Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                Fusce feugiat porttitor turpis. Fusce tincidunt sollicitudin magna.
+                                Maecenas luctus, arcu quis mollis blandit, lorem lectus cursus enim,
+                                vel suscipit elit ipsum ullamcorper purus.
+                            </div>
+                            <div class="message-info">
+                                12:34 AM, read
+                            </div>
+                        </div>
+                        <div class="outcoming">
+                            <div class="message">
+                                Lorem ipsum dolor sit amet
+                            </div>
+                            <div class="message-info">
+                                12:34 AM, read
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -232,6 +273,9 @@
     }
 
     window.onload = () => {
+        const imElement = document.getElementById('messages');
+        imElement.scrollTop = imElement.scrollHeight;
+
         socket = new WebSocket("ws://localhost:9999/chat");
 
         // connection established
