@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "WebSockets server",
+  "main": "server.js",
+  "dependencies": {
+    "http": "0.0.0",
+    "ws": "^7.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Alexander Kohonovsky",
+  "license": "MIT"
+}

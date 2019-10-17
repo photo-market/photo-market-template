@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="/css/chat.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap&subset=cyrillic"
           rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -121,14 +122,40 @@
                 </div>
 
                 <div class="messages">
-
+                    <div class="incoming">
+                        <div class="message">
+                            Hello world
+                        </div>
+                        <div class="message-info">
+                            12:34 AM, read
+                        </div>
+                    </div>
+                    <div class="outcoming">
+                        <div class="message">
+                            Hello world
+                        </div>
+                        <div class="message-info">
+                            12:34 AM, read
+                        </div>
+                    </div>
                 </div>
 
                 <div class="input-bar">
-                    <label>
-                        <input type="text" maxlength="256" name="search">
-                    </label>
-                    <button>Send</button>
+                    <button class="attach">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                    <!--                    <label class="text">-->
+                    <!--                        <textarea maxlength="1024" rows="1" name="message" placeholder="Write a message..."></textarea>-->
+                    <!--                    </label>-->
+                    <div class="text-area"
+                         contenteditable="true"
+                         onclick="this.innerHTML = ''"
+                         onkeydown="onKeyDown(event, this)">
+                        Write a message...
+                    </div>
+                    <button>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -146,5 +173,85 @@
     </footer>
 </div>
 <script src="/js/script.js"></script>
+<script>
+    let socket;
+    let clientInfo = {
+        clientID: undefined,
+    };
+
+    function onKeyDown(event, el) {
+        if (event.keyCode === 13 && !event.shiftKey) {
+            // console.log(event);
+            event.preventDefault();
+            console.log('Sending...');
+
+            if (socket.readyState === 1) { // OPEN
+                sendMessage(el.innerText);
+            }
+
+            // Reset input field
+            el.innerHTML = '';
+        }
+    }
+
+    function convertToPlaintext(el) {
+        let textContent = el.textContent;
+        el.innerHTML = "";
+        el.textContent = textContent;
+    }
+
+    function sendMessage(message) {
+        const data = {
+            clientID: clientInfo.clientID,
+            date: Date.now(),
+            type: "message",
+            message: message
+        };
+        socket.send(JSON.stringify(data));
+    }
+
+    window.onload = () => {
+        socket = new WebSocket("ws://localhost:9999/chat");
+
+        // connection established
+        socket.onopen = function (e) {
+            console.log("[open] Connection established");
+            console.log(e);
+        };
+
+        // data received
+        socket.onmessage = function (event) {
+            console.log(`[message] Data received from server: ${event.data}`);
+            const msg = JSON.parse(event.data);
+            switch (msg.type) {
+                case 'init':
+                    clientInfo.clientID = msg.clientID;
+                    break;
+                case 'message':
+                    console.log('incoming message: ' + msg.text);
+                    break;
+                case 'userlist':
+                    // new users list
+                    break;
+            }
+        };
+
+        // connection closed
+        socket.onclose = function (event) {
+            if (event.wasClean) {
+                console.log(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+            } else {
+                // e.g. server process killed or network down
+                // event.code is usually 1006 in this case
+                console.log('[close] Connection died');
+            }
+        };
+
+        // websocket error
+        socket.onerror = function (error) {
+            console.log(`[error] ${error.message}`);
+        };
+    }
+</script>
 </body>
 </html>
