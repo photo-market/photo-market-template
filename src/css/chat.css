@@ -8,12 +8,10 @@ main.messaging {
     display: flex;
 }
 
-main.messaging > div {
-    flex: 1;
-}
-
 .left-bar {
     width: 300px;
+    max-width: 300px;
+    min-width: 300px;
 }
 
 .small-avatar {
@@ -137,7 +135,7 @@ main.messaging > div {
     background-color: unset;
     border: none;
     outline: none;
-    font-size: 18px;
+    font-size: 20px;
     min-height: unset;
 }
 
@@ -148,11 +146,30 @@ main.messaging > div {
 .right-bar .input-bar .text-area {
     border: 0;
     height: 100%;
-    outline: none;
-    padding: 0 10px 0 10px;
     width: 100%;
+    max-width: 100%;
+    outline: none;
+    padding: 0;
     vertical-align: middle;
     max-height: 200px;
-    overflow: auto;
     line-height: 1.5;
+    border-bottom: 2px solid white;
+    word-break: break-all;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.right-bar .input-bar .text-area:empty:before {
+    content: attr(data-placeholder);
+    color: #9aa2ab;
+    display: block;
+    margin-top: -1px;
+    margin-left: 1px;
+    pointer-events: none;
+}
+
+.right-bar .input-bar .text-area:focus {
+    border-bottom: 2px solid #009fd9;
 }

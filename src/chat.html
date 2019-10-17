@@ -144,15 +144,14 @@
                     <button class="attach">
                         <i class="fas fa-paperclip"></i>
                     </button>
-                    <!--                    <label class="text">-->
-                    <!--                        <textarea maxlength="1024" rows="1" name="message" placeholder="Write a message..."></textarea>-->
-                    <!--                    </label>-->
+                    <label style="display:none">
+                        <textarea name="text" placeholder="Write a message..."></textarea>
+                    </label>
                     <div class="text-area"
                          contenteditable="true"
-                         onclick="this.innerHTML = ''"
-                         onkeydown="onKeyDown(event, this)">
-                        Write a message...
-                    </div>
+                         onkeydown="onKeyDown(event, this)"
+                         onfocusout="onFocusOut(event, this)"
+                         data-placeholder="Write a message..."></div>
                     <button>
                         <i class="fas fa-paper-plane"></i>
                     </button>
@@ -179,17 +178,37 @@
         clientID: undefined,
     };
 
+    document.querySelector('div[contenteditable="true"]').addEventListener("paste", (e) => {
+        // cancel paste
+        e.preventDefault();
+
+        // get text representation of clipboard
+        const text = (e.originalEvent || e).clipboardData.getData('text/plain');
+
+        const trimmedText = text.substr(0, 1000);
+
+        // insert text manually
+        document.execCommand("insertText", false, trimmedText);
+    });
+
     function onKeyDown(event, el) {
         if (event.keyCode === 13 && !event.shiftKey) {
             // console.log(event);
             event.preventDefault();
-            console.log('Sending...');
+
+            const text = el.innerText;
+            if (text.trim() === '') return;
 
             if (socket.readyState === 1) { // OPEN
-                sendMessage(el.innerText);
+                sendMessage(text);
+                // Reset input field
+                el.innerText = '';
             }
+        }
+    }
 
-            // Reset input field
+    function onFocusOut(event, el) {
+        if (el.innerText.trim() === '') {
             el.innerHTML = '';
         }
     }
@@ -205,8 +224,10 @@
             clientID: clientInfo.clientID,
             date: Date.now(),
             type: "message",
-            message: message
+            text: message
         };
+        console.log('Sending...');
+        console.log(data);
         socket.send(JSON.stringify(data));
     }
 
@@ -230,7 +251,7 @@
                 case 'message':
                     console.log('incoming message: ' + msg.text);
                     break;
-                case 'userlist':
+                case 'user_list':
                     // new users list
                     break;
             }
