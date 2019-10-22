@@ -11,7 +11,7 @@ install: skip
 
 script:
   - >
-    echo "Version: ${TRAVIS_BUILD_NUMBER}" > ./src/version.txt
+    echo "Version: ${TRAVIS_BUILD_NUMBER}" > ./src/version.txt &&
     echo "Git commit hash: $(git log --format=%h -1)" >> ./src/version.txt
   - docker build -f Dockerfile -t ${IMAGE_NAME} .
 

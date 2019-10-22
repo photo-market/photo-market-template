@@ -11,6 +11,20 @@ This repository contains latest version of Photo Market template.
 - https://dribbble.com/Steven_Noble
 - https://www.behance.net/stevennoble
 
+## Workflow
+We use branch-per-feature method.
+https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
+
+### How to implement new functionality / make a fix?
+1. Create new branch from "develop" branch
+2. Commit everything 
+3. Create Pull Request from your branch to "develop"
+
+### How to release?
+1. Create Pull Request from "develop" to "master"
+2. Review and merge it
+
+
 # Chat 
 ## Chat security considerations
 1. Enable CORS
