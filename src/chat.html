@@ -212,9 +212,10 @@
 </div>
 <script src="/js/script.js"></script>
 <script>
-    let socket;
-    let clientInfo = {
+    let client = {
+        isAuthenticated: false,
         clientID: undefined,
+        socket: null
     };
 
     document.querySelector('div[contenteditable="true"]').addEventListener("paste", (e) => {
@@ -238,7 +239,7 @@
             const text = el.innerText;
             if (text.trim() === '') return;
 
-            if (socket.readyState === 1) { // OPEN
+            if (client.socket.readyState === 1) { // OPEN
                 sendMessage(text);
                 // Reset input field
                 el.innerText = '';
@@ -260,26 +261,23 @@
 
     function sendMessage(message) {
         const data = {
-            clientID: clientInfo.clientID,
+            clientID: client.clientID,
             date: Date.now(),
             type: "message",
             text: message
         };
         console.log('Sending...');
         console.log(data);
-        socket.send(JSON.stringify(data));
+        client.socket.send(JSON.stringify(data));
     }
 
     window.onload = () => {
+        // Scrol to bottom
         const imElement = document.getElementById('messages');
         imElement.scrollTop = imElement.scrollHeight;
 
-        // const messages = document.querySelector('#messages').children;
-        // const lastMessage = messages[messages.length - 1];
-        // lastMessage.scrollIntoView({block: "end"});
-
-
         socket = new WebSocket("ws://localhost:9999/chat");
+        client.socket = socket;
 
         // connection established
         socket.onopen = function (e) {
@@ -293,7 +291,7 @@
             const msg = JSON.parse(event.data);
             switch (msg.type) {
                 case 'init':
-                    clientInfo.clientID = msg.clientID;
+                    client.clientID = msg.clientID;
                     break;
                 case 'message':
                     console.log('incoming message: ' + msg.text);
