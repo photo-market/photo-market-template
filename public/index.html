@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome</title>
+
+    <script defer src="/__/firebase/7.2.1/firebase-app.js"></script>
+    <!--    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>-->
+
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.2.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.2.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.2.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.2.1/firebase-storage.js"></script>
+    <script defer src="/__/firebase/7.2.1/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/7.2.1/firebase-firestore.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <!--    <script defer src="/__/firebase/init.js"></script>-->
+
+    <style media="screen"></style>
+</head>
+<body>
+
+
+<h2>Chats</h2>
+<div id="chats"></div>
+
+<h2>Messages:</h2>
+<div id="messages"></div>
+
+<p id="load">Firebase SDK Loading&hellip;</p>
+
+<script>
+    function createMessage(text) {
+        let node = document.createElement("p");                 // Create a <li> node
+        let textnode = document.createTextNode(text);         // Create a text node
+        node.appendChild(textnode);
+        return node;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        try {
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyAd11bbmJ6xS6ZZnfGT3O01eoStv6dI6b0",
+                authDomain: "photo-market.firebaseapp.com",
+                databaseURL: "https://photo-market.firebaseio.com",
+                projectId: "photo-market",
+                storageBucket: "photo-market.appspot.com",
+                messagingSenderId: "313654276093",
+                appId: "1:313654276093:web:d54d996804aaa48e693394",
+                measurementId: "G-TXH8GBNV5M"
+            };
+
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+
+            const db = firebase.firestore();
+
+            const chats = document.getElementById('chats');
+            const messages = document.getElementById('messages');
+
+            let userId = null;
+            const usersRef = db.collection("users");
+            const chatsRef = db.collection("chats");
+
+            usersRef.get().then((snapshot) => {
+                snapshot.forEach((doc) => {
+                    chats.append(`UserID ${doc.id} => data: ${JSON.stringify(doc.data())}\n`);
+                    userId = doc.id;
+                });
+
+                usersRef.doc(userId).collection('chats').get().then((userChats) => {
+                    userChats.forEach((userChat) => {
+
+                        chatsRef.doc(userChat.id)
+                            .collection('messages')
+                            .orderBy("createdAt", "desc").limit(3)
+                            .onSnapshot((snap) => {
+                                messages.innerHTML = "";
+                                snap.forEach((doc) => {
+                                    console.log("New message: ", doc.data());
+                                    const msgNode = createMessage(doc.data().text);
+                                    messages.append(msgNode);
+                                });
+
+                            });
+
+                    })
+                });
+
+            });
+
+            document.getElementById('load').innerHTML = `Firebase SDK loaded`;
+        } catch (e) {
+            console.error(e);
+            document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+    });
+</script>
+</body>
+</html>
