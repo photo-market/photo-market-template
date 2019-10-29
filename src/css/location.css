@@ -11,12 +11,13 @@
 .location-row {
     display: flex;
     justify-content: space-evenly;
-    margin: 16px auto 16px auto; 
+    margin: 20px auto 16px auto;
 }
 
 .location-item img {
     width: 400px;
     height: 300px;
+    border-radius: 10px;
 }
 
 .location-item p {
